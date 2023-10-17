@@ -61,8 +61,46 @@ pub fn print_scalar_data_types() {
     println!("{}, {}, {}, {}, {}", y, floating_point, this_is_true, this_is_false, char_x);
 }
 
+// Tuple Type
+// General way of grouping together a number of values with a variety of types.
+
+// Array Type
+// Arrays allocate data on the stack raher than the heap - just like C langauge.
 
 pub fn print_compound_data_types() {
+    // ### Tuple
+    let tuple: (i32, f64, u8) = (5002, 12.5, 7);
+    let tuple2: (i32, char, bool) = (512, 'x', true);
+
+    // To get the value of a tuple, dereference it like you would in JS
+    let (a, _b, _c) = tuple;
+    let (_x, y, _z) = tuple2;
+    println!(
+        "Expected value: 5002, Actual value: {} | Expected value: x, Actual value: {}", 
+        a, y
+    );
+
+    // We can also access a tuple by using the (.) notation.
+    let five_thousand = tuple.0;
+    let two_pwr_nine = tuple2.0;
+    println!(
+        "Expected: 5002 ? {} | Expected: 512 ? {}",
+        five_thousand, two_pwr_nine
+    );    
+
+    // Tuple without any values is called a 'unit'.
+
+    // ### Array
+    let arr: [i32; 5] = [1, 2, 3, 4, 5];
+
+    // Init array with same value for each element:
+    let arr2 = [3; 5]; // Returns 5 element that are value 3.
+
+    // We can access arrays like how we always do:
+    println!("This is 3: {}", arr2[0]);
+
+    // Does it print garbage like C if we refer to an element out of bounds?
+    // println!("Expect error: {}", arr2[15]);
 
 }
 
