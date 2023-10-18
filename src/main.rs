@@ -4,6 +4,7 @@
 // Example of importing specific functions: < use crate::basics::print_variables; >
 
 mod basics;
+mod ownership;
 
 fn main() {
     ("Hello, world!");
@@ -14,4 +15,5 @@ fn main() {
     basics::this_scary_loop();
     basics::disambiguate_loops();
     basics::for_loop();
+    ownership::ownership();
 }
