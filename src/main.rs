@@ -11,4 +11,7 @@ fn main() {
     basics::print_scalar_data_types();
     basics::print_compound_data_types();
     basics::print_labeled_measurement(15, "kg");
+    basics::this_scary_loop();
+    basics::disambiguate_loops();
+    basics::for_loop();
 }

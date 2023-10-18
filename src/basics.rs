@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 // ############# Variables
 
 pub fn print_variables() {
@@ -6,7 +7,6 @@ pub fn print_variables() {
     x += 1;
     
     println!("This is x: {}", x);
-    
     // Unlike other languages, we are able to declare a variable with the same name again.
     // CONCEPT: SHADOWING
     let _shadowing: i32 = 5;
@@ -133,3 +133,95 @@ pub fn print_labeled_measurement(value: i32, unit_label: &str) {
 // Unlike many languages where we specify the `return` keyword, 
 // this is different in Rust.
 
+
+// ## Control Flow
+
+// if Expressions (Examples from The Rust Programming Language)
+pub fn if_statements() {
+    let number = 3;
+
+    if number < 5 {
+        println!("Condition was true");
+    } else if number > 100 {
+        println!(
+            "Meh, this is a float. Number isn't a float. 
+            //Fix: Didn't work. Cannot mix data type."
+        );
+    } else {
+        println!("Condition was false");
+    }
+
+    // Unlike JavaScript and Ruby, Rust will not automatically convert non-boolean
+    // types to a Boolean.
+    let _fail_case = "if number { println!('This won't work.')};";
+
+    let _similar_ternary = if number == 3 { 1 } else { -1 };
+}
+
+// Three Types of Loops in Rust
+
+// Loops execute a block of code until it is told to stop.
+pub fn this_scary_loop() {
+    let mut counter: i32 = 0;
+    println!("The `loop` executes a block of code");
+    loop {
+        println!("again...");
+        counter += 1;
+        if counter == 100 {
+            println!("TELL IT TO STOP!");
+            break;
+        }
+    }
+}
+
+// We can have multiple loops, and specify which one to stop as well.
+pub fn disambiguate_loops() {
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {remaining}");
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                println!("Specific loop ending triggered.");
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+
+        count += 1;
+    }
+    println!("End count = {count}");
+}
+
+// Just like any other standard while loop.
+fn while_loop() {
+    let mut number = 3;
+    while number != 0 {
+        println!("....{number}");
+
+        number -= 1;
+    }
+
+    println!("Sigh...");
+}
+
+// The for-loop
+pub fn for_loop() {
+    let arr: [i32; 5] = [4, 19, 300, 94, -1];
+    for element in arr {
+        println!("The value is {element}");
+    }
+
+    for number in 1..4 {
+        println!("{number}");
+    }
+
+    for number in (1..4).rev() {
+        println!("{number}");
+    }
+}
