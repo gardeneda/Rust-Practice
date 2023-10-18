@@ -91,7 +91,7 @@ pub fn print_compound_data_types() {
     // Tuple without any values is called a 'unit'.
 
     // ### Array
-    let arr: [i32; 5] = [1, 2, 3, 4, 5];
+    let _arr: [i32; 5] = [1, 2, 3, 4, 5];
 
     // Init array with same value for each element:
     let arr2 = [3; 5]; // Returns 5 element that are value 3.
@@ -104,4 +104,32 @@ pub fn print_compound_data_types() {
 
 }
 
+// As long as the function is in the scope where it can be seen by the caller,
+// it doesn't mean where it is. (Contrary to JavaScript - excluding Hoisting) || Also similar to Java in such regard.
+fn _foo() {
+    println!("This is a function!");
+}
+
+// We must define the function signature - each type for each argument.
+fn _fn_parameter(x: i32) {
+    println!("This is the given value: {x}");
+}
+
+// ***Rust is an expression-based language.
+// Statements are instructions that perform some action and do not return values.
+// Expressions evaluate to a resultant value.
+
+// The return value is specified with an arrow: -> 
+fn _five() -> i32 {
+    // No semicolon or anything, because this is an expression.
+    5
+}
+
+pub fn print_labeled_measurement(value: i32, unit_label: &str) {
+    println!("The measurement is: {value}{unit_label}");
+}
+
+// All functions that are expressions will be the `return`.
+// Unlike many languages where we specify the `return` keyword, 
+// this is different in Rust.
 

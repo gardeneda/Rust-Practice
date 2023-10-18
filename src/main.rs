@@ -10,4 +10,5 @@ fn main() {
     basics::print_variables();
     basics::print_scalar_data_types();
     basics::print_compound_data_types();
+    basics::print_labeled_measurement(15, "kg");
 }
