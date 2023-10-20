@@ -2,37 +2,39 @@
 
 // TRAIT: COPY, DROP
 
-// BACKGROUND INFORMATION - OWNERSHIP, UNIQUE TO RUST.
+/* 
+BACKGROUND INFORMATION - OWNERSHIP, UNIQUE TO RUST.
 
-// Unlike C where we explicitly allocate and free memory,
-// Rust manages memory through a system of ownership with a set of
-// rules that the compiler checks.
-// None of the features will slow down the program when it is running.
+    Unlike C where we explicitly allocate and free memory,
+    Rust manages memory through a system of ownership with a set of
+    rules that the compiler checks.
+    None of the features will slow down the program when it is running.
 
-// Re-Emphasis: Accessing data in the heap is slower than 
-// accessing data on the stack because you have to follow a pointer to get there.
+    Re-Emphasis: Accessing data in the heap is slower than 
+    accessing data on the stack because you have to follow a pointer to get there.
 
-// Contemporary processors are faster if they jump around less in memory. 
-// Continuing the analogy, consider a server at a restaurant taking orders from many tables. 
-// It’s most efficient to get all the orders at one table before moving on to the next table. 
-// aking an order from table A, then an order from table B, then one from A again, and then one
-// from B again would be a much slower process. By the same token, a processor can do its job better if
-// it works on data that’s close to other data (as it is on the stack) 
-// rather than farther away (as it can be on the heap).
+    Contemporary processors are faster if they jump around less in memory. 
+    Continuing the analogy, consider a server at a restaurant taking orders from many tables. 
+    It’s most efficient to get all the orders at one table before moving on to the next table. 
+    aking an order from table A, then an order from table B, then one from A again, and then one
+    from B again would be a much slower process. By the same token, a processor can do its job better if
+    it works on data that’s close to other data (as it is on the stack) 
+    rather than farther away (as it can be on the heap).
 
-// When your code calls a function, the values passed into the function (including, potentially, 
-// pointers to data on the heap) and the function’s local variables get pushed onto the stack. 
-// When the function is over, those values get popped off the stack.
+    When your code calls a function, the values passed into the function (including, potentially, 
+    pointers to data on the heap) and the function’s local variables get pushed onto the stack. 
+    When the function is over, those values get popped off the stack.
 
-// CONCLUSION: Keeping track of what parts of code are using what data on the heap, 
-// minimizing the amount of duplicate data on the heap, and cleaning up unused data on the heap 
-// so you don’t run out of space are all problems that ownership addresses.
+    CONCLUSION: Keeping track of what parts of code are using what data on the heap, 
+    minimizing the amount of duplicate data on the heap, and cleaning up unused data on the heap    so you don’t run out of space are all problems that ownership addresses.
+*/
 
 // ##############################
-// OWNERSHIP RULES
-// 1. Each value in Rust has an owner.
-// 2. There can only be one owner at a time.
-// 3. If owner goes out of scope, value will be dropped.
+/* OWNERSHIP RULES
+    1. Each value in Rust has an owner.
+    2. There can only be one owner at a time.
+    3. If owner goes out of scope, value will be dropped.
+*/
 
 
 pub fn ownership() {

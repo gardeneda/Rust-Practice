@@ -28,24 +28,25 @@ pub fn print_variables() {
 
 // ############# Data Types
 
-// Scalar Types = Represent single value
-// 1. Integer Types  DEFAULT: i32
-//        Signed: (i8, i16, i32, i64, i128, architecture: isize)
-//      -2^7 ~ 2^7 -1 :: Two's Complement
+/*  
+Scalar Types = Represent single value
+    1. Integer Types  DEFAULT: i32
+           Signed: (i8, i16, i32, i64, i128, architecture: isize)
+         -2^7 ~ 2^7 -1 :: Two's Complement
 
-//      Unsigned: (u8, u16, u32, u64, u128, architecture: usze)
-//      0 ~ 2^8 -1
+         Unsigned: (u8, u16, u32, u64, u128, architecture: usze)
+         0 ~ 2^8 -1
 
-//      Integer Overflow is possible! (which will trigger a `panic!` in Rust)
+         Integer Overflow is possible! (which will trigger a `panic!` in Rust)
 
-// 2. Floating Types (f32, f64)
-//          f32: 32-bit floating (single-precision)
-// DEFAULT  f64: 64-bit floating 
+    2. Floating Types (f32, f64)
+             f32: 32-bit floating (single-precision)
+    DEFAULT  f64: 64-bit floating 
 
-// 3. Boolean (bool)
+    3. Boolean (bool)
 
-// 4. Char (any single char) - **IS 4 BYTES in RUST 
-
+    4. Char (any single char) - **IS 4 BYTES in RUST 
+*/
 pub fn print_scalar_data_types() {
     
     let y: u32 = 178;
