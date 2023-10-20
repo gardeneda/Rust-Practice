@@ -30,7 +30,8 @@ BACKGROUND INFORMATION - OWNERSHIP, UNIQUE TO RUST.
 */
 
 // ##############################
-/* OWNERSHIP RULES
+/* 
+OWNERSHIP RULES
     1. Each value in Rust has an owner.
     2. There can only be one owner at a time.
     3. If owner goes out of scope, value will be dropped.
@@ -46,6 +47,7 @@ pub fn ownership() {
     // This manages data allocated on the heap and stores an amount of text
     // that is unknown to us at compile time.
     let mut _s: String = String::from("hello");
+
     // This is mutable. To support a mutable, growable piece of text,
     // we need to allocate amount of memory on the heap, unknown at compile time.
     _s.push_str(", world!");
@@ -55,8 +57,12 @@ pub fn ownership() {
         let _disappears_after_socpe: String = String::from("Test Literal");
 
     } // the variable above is no longer in the scope, and is freed from memory
-    // To achieve freeing of memory, it calls a function called `drop`.
-    // Also known as RAII (Resource Acuiisition Is Initialization)
+    
+    /*
+        To achieve freeing of memory, it calls a function called `drop`.
+        Also known as RAII (Resource Acuiisition Is Initialization)
+    */
+
     let s1: String = String::from("hello");
     let _s2: String = s1;
     // println!("{} This returns an error!", s1);
@@ -71,11 +77,13 @@ pub fn ownership() {
 
     println!("s1 = {}, s2 = {}", s1, s2);
 
-    // The same behavior above isn't seen in this example:
-    // This is shallow copying.
-    // Integer is a known size at compile time and stored on stack.
-    // That means there’s no reason we would want to prevent x from being valid 
-    // after we create the variable y.
+    /* 
+        The same behavior above isn't seen in this example:
+        This is shallow copying.
+        Integer is a known size at compile time and stored on stack.
+        That means there’s no reason we would want to prevent x from being valid 
+        after we create the variable y.
+    */
 
     let x: i32 = 5;
     let y: i32 = x;
